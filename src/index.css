@@ -26,6 +26,11 @@ html {
   text-decoration: none;
 }
 
-.nav-head {
+.nav-head , .footer-bar {
   padding: 1.2rem;
 }
+.footer {
+  background-color: aqua;
+  height: 80px;
+}
+

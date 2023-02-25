@@ -1,9 +1,9 @@
 export function Footer() {
   return (
-    <div>
-      <footer>
-        <p>Rights Reserved @2023</p>
+    <div class= "footer">
+      <footer class="footer-bar">
+        <p>Jonathan Hoarau @2023</p>
       </footer>
     </div>
   );
- }
+}
