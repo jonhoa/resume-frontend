@@ -11,6 +11,7 @@ export function Content() {
       <p><a href=''>Student #4 Resume</a></p>
       <p><a href=''>Student #5 Resume</a></p>
       <p><a href=''>Student #6 Resume</a></p>
+      <p><a href=''>Student #7 Resume</a></p>
       <ProductsNew />
       <ProductsIndex />
     </div>
