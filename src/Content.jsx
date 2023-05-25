@@ -3,13 +3,18 @@ import { ProductsIndex } from './ProductsIndex';
 import axios from 'axios';
 
 export function Content() {
+  let resumeData = [];
+  const fakeData = [
+    { name: "Paulo", age: "26"}, {name: "Igor", age: "55"}
+  ];
+  
   function axiosFetch() {
-    console.log('Clicking!');
     axios.get('http://localhost:3000/people/all').then(response =>{
       console.log(response.data);
+      resumeData = response.data;
+      console.log(resumeData);
       console.log('Clicking!')
     })
-
   }
   return (
     <div class="container">
@@ -23,6 +28,11 @@ export function Content() {
       <p><a href=''>Student #6 Resume</a></p>
       <p><a href=''>Student #7 Resume</a></p>
       <p><a href=''>Student #8 Resume</a></p>
+      {fakeData.map((resData => (
+        <div>
+        <p>{resData.name}</p>
+        </div>
+      )))}
       <ProductsNew />
       <ProductsIndex />
     </div>
