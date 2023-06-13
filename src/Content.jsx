@@ -17,26 +17,20 @@ const axiosFetch = () => {
     }
   }
 
+function headerText() {
 
-// if(dataInfo) {
-//   return <div>{dataInfo.map((resData => ( <p>{resData.first_name}</p>)))}</div>
-// }
+}
+
+function dataPro() {
+  return <div>{dataInfo.map((resData => ( <p>{resData.first_name}</p>)))}</div>
+}
   return (
     <div class="container">
       <h1>Resume Builder</h1>
       <button onClick={axiosFetch}>Fetch Axios Request!</button>
-   
+       <h1 id ="dataprint">Try</h1>
       <p><a href=''>Student #1 Resume</a></p>
-      { 
-        (() => { 
-          if (dataInfo = true) { 
-            return (
-              <div> 
-              <h1>There is data loaded</h1>
-              </div>
-              )
-              }
-              })}
+      {dataInfo ? <h1>Logged in</h1> : <h1>Logged out</h1>}
       <p><a href=''>Student #2 Resume</a></p>
       <p><a href=''>Student #3 Resume</a></p>
       <p><a href=''>Student #4 Resume</a></p>
