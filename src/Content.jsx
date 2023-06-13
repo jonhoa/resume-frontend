@@ -1,35 +1,42 @@
 import { ProductsNew } from './ProductsNew';
 import { ProductsIndex } from './ProductsIndex';
-import { useEffect } from 'react';
+import { useEffect , useState} from 'react';
 import axios from 'axios';
 
 export function Content() {
-  let resumeData = [];
-  const fakeData = [
-    { name: "Paulo", age: "26"}, {name: "Igor", age: "55"}
-  ];
-  let isClicked = false
+const [dataInfo, setData] = useState(null);
 
-  function axiosFetch() {
+const axiosFetch = () => {
     axios.get('http://localhost:3000/people/all').then(response =>{
-      console.log(response.data);
-      resumeData = response.data;
-      console.log(resumeData);
+      setData(response.data);
       console.log('Clicking!')
-      isClicked = true
     })
-    console.log(fakeData);
-
-    if(isClicked){
-      <View></View>
-    } 
-    
+    if (dataInfo) { 
+      console.log("data loaded");
+      console.log(dataInfo)
+    }
   }
+
+
+// if(dataInfo) {
+//   return <div>{dataInfo.map((resData => ( <p>{resData.first_name}</p>)))}</div>
+// }
   return (
     <div class="container">
       <h1>Resume Builder</h1>
-      <button onClick= {axiosFetch}>Fetch Axios Request!</button>
+      <button onClick={axiosFetch}>Fetch Axios Request!</button>
+   
       <p><a href=''>Student #1 Resume</a></p>
+      { 
+        (() => { 
+          if (dataInfo = true) { 
+            return (
+              <div> 
+              <h1>There is data loaded</h1>
+              </div>
+              )
+              }
+              })}
       <p><a href=''>Student #2 Resume</a></p>
       <p><a href=''>Student #3 Resume</a></p>
       <p><a href=''>Student #4 Resume</a></p>
@@ -38,11 +45,7 @@ export function Content() {
       <p><a href=''>Student #7 Resume</a></p>
       <p><a href=''>Student #8 Resume</a></p>
 
-      {fakeData.map((resData => (
-        <div>
-        <p>{resData.name}</p>
-        </div>
-      )))}
+    
       <ProductsNew />
       <ProductsIndex />
     </div>
