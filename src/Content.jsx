@@ -7,6 +7,8 @@ export function Content() {
 const [dataInfo, setData] = useState(null);
 const [dataShow, setShow] = useState(null);
 
+const url_id = 1
+
 const axiosFetch = () => {
     axios.get('http://localhost:3000/people/all').then(response =>{
       setData(response.data);
@@ -15,7 +17,7 @@ const axiosFetch = () => {
   }
 
   const axiosShow = () => {
-    axios.get(`http://localhost:3000/people/1`).then(response =>{
+    axios.get(`http://localhost:3000/people/`+ url_id).then(response =>{
       setShow(response.data);
       console.log('Clicking!')
       console.log(dataShow)
@@ -26,7 +28,10 @@ const axiosFetch = () => {
       <h1>Resume Builder</h1>
       <button onClick={axiosFetch}>Fetch Axios Request!</button>
       {/* Fetch ALL firstnames in database */}
-      {dataInfo ? <div>{dataInfo.map((resData => ( <p>{resData.first_name}</p>)))}</div>: <div><p>empty</p></div>}
+      {dataInfo ? <div>{dataInfo.map((resData => ( <div key ={resData.id}><button onClick={axiosShow}>Fetch Axios Id :{resData.id} </button>
+        <p>{resData.first_name}</p></div>)))}</div>  : <div><p>empty</p></div>}
+
+
 
       {/* Fetch show names in database */}
       <button onClick={axiosShow}>Fetch Axios Id : 1 </button>
