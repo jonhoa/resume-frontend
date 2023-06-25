@@ -54,6 +54,16 @@
   padding:0.4rem;
   text-align:left
 }
+/* columns and rows */
+.col {
+  columns: 300px 2;
+}
+.col h3, .row h3,h4 , .row p{
+  text-align: left;
+}
+.col h4{
+  text-align: right;
+}
 /*  */
 @keyframes logo-spin {
   from {

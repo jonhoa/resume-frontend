@@ -43,7 +43,7 @@ const axiosFetch = () => {
           <h3>Github</h3>
         </div>
 
-        <div class ="summary">
+        <div class ="row">
           <h2>Summary:</h2>
           <p>I like to build stuff so get me a nice cushiony job pweeze</p>
         </div>
@@ -57,34 +57,49 @@ const axiosFetch = () => {
           <li>Python</li>
           </ul>
         </div>
-        
-        <div class ="projects">
+
+        <div class ="row">
           <h2>Projects:</h2>
-          <h3>XXX site (url)</h3>
-          <p>I like to build stuff so get me a nice cushiony job pweeze</p>
-          <h3>Panda Score (url)</h3>
-          <p>I like to build stuff so get me a nice cushiony job pweeze</p>
+            <div class = "col">
+              <a href=""><h3>YahoXX site</h3></a>
+              <h4>Start - End</h4>
+            </div>
+          <h4>Rails,React,Javascript</h4>
+            <p>I like to build stuff so get me a nice cushiony job pweeze</p>
+            <div class = "col">
+            <a href=""><h3>Panda Score</h3></a>
+              <h4>Start - End</h4>
+            </div>
+          <h4>Rails,React,Javascript</h4>
+            <p>Panda that eats snakes app</p>
         </div>
 
-        <div class ="education">
+        <div class ="row">
           <h2>Education:</h2>
-            <div class="education-header">
-              <h3>Degree</h3><p>Start</p><p>End</p>
+            <div class = "col">
+              <h3>Degree</h3>
+              <h4>Start - End</h4>
             </div>
-            <div class="education-header">
-              <h3>University</h3><p>Start</p><p>End</p>
-            </div>
+          <h4>University</h4>
+            <p>I moved pillows around for a living here and then I quit and flew into the sky</p>
             <ul>
               <li>Food</li>
               <li>GPA:2.5</li>
             </ul>
         </div>
         
-        <div class ="experience">
+        <div class ="row">
           <h2>Experience:</h2>
-          <p>I like to build stuff so get me a nice cushiony job pweeze</p>
+            <div class = "col">
+              <h3>Job</h3>
+              <h4>Start - End</h4>
+            </div>
+          <h4>Company</h4>
+            <p>I moved pillows around for a living here and then I quit and flew into the sky</p>
         </div>
+      
       </div>
+
       {dataInfo ? <div>{dataInfo.map((resData => ( <div key ={resData.id}><button onClick={axiosShow}>Fetch Axios Id :{resData.id} </button>
         <p>{resData.first_name}</p></div>)))}</div>  : <div><p>empty</p></div>}
 
