@@ -26,8 +26,15 @@ const axiosFetch = () => {
   return (
     <div class="container">
       <h1>Resume Builder</h1>
+      <button class ="btn btn-primary">Download as PDF</button>
       <button onClick={axiosFetch}>Fetch Axios Request!</button>
       {/* Fetch ALL firstnames in database */}
+      <div class = "res-background">
+        <h1>John Doe</h1>
+        <h2>Software Developer</h2>
+        <div class="h3-align"><h3>(111)-1111 1111</h3> <h3>LinkedIN</h3><h3>Github</h3></div>
+        <div class ="res-summary"><h2>Summary:</h2><p>I like to build stuff so get me a nice cushiony job pweeze</p></div>
+      </div>
       {dataInfo ? <div>{dataInfo.map((resData => ( <div key ={resData.id}><button onClick={axiosShow}>Fetch Axios Id :{resData.id} </button>
         <p>{resData.first_name}</p></div>)))}</div>  : <div><p>empty</p></div>}
 
