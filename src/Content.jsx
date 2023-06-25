@@ -29,11 +29,55 @@ const axiosFetch = () => {
       <button class ="btn btn-primary">Download as PDF</button>
       <button onClick={axiosFetch}>Fetch Axios Request!</button>
       {/* Fetch ALL firstnames in database */}
+      
+      {/* Resume Layout and Design ---later make it dynamically fill in info from backend like buttons are doing! */}
       <div class = "res-background">
-        <h1>John Doe</h1>
-        <h2>Software Developer</h2>
-        <div class="h3-align"><h3>(111)-1111 1111</h3> <h3>LinkedIN</h3><h3>Github</h3></div>
-        <div class ="res-summary"><h2>Summary:</h2><p>I like to build stuff so get me a nice cushiony job pweeze</p></div>
+        <div class="header">
+          <h1>John Doe</h1>
+          <h2>Software Developer</h2>
+        </div>
+        
+        <div class="contact">
+          <h3>(111)-1111 1111</h3> 
+          <h3>LinkedIN</h3>
+          <h3>Github</h3>
+        </div>
+
+        <div class ="summary">
+          <h2>Summary:</h2>
+          <p>I like to build stuff so get me a nice cushiony job pweeze</p>
+        </div>
+
+        <div class ="skills">
+          <h2>Skills:</h2>
+          <ul>
+          <li>Karate</li>
+          <li>Ruby</li>
+          <li>C++</li>
+          <li>Python</li>
+          </ul>
+        </div>
+        
+        <div class ="projects">
+          <h2>Projects:</h2>
+          <h3>XXX site (url)</h3>
+          <p>I like to build stuff so get me a nice cushiony job pweeze</p>
+          <h3>Panda Score (url)</h3>
+          <p>I like to build stuff so get me a nice cushiony job pweeze</p>
+        </div>
+
+        <div class ="education">
+          <h2>Education:</h2>
+          <div class="education-header">
+          <h3>Degree</h3>
+          <p>Start</p>
+          <p>End</p>
+          </div>
+          
+          <h4>University</h4>
+          <p>I like to build stuff so get me a nice cushiony job pweeze</p>
+        </div>
+
       </div>
       {dataInfo ? <div>{dataInfo.map((resData => ( <div key ={resData.id}><button onClick={axiosShow}>Fetch Axios Id :{resData.id} </button>
         <p>{resData.first_name}</p></div>)))}</div>  : <div><p>empty</p></div>}
