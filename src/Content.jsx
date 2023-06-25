@@ -96,6 +96,13 @@ const axiosFetch = () => {
             </div>
           <h4>Company</h4>
             <p>I moved pillows around for a living here and then I quit and flew into the sky</p>
+
+            <div class = "col">
+              <h3>Job 2</h3>
+              <h4>Start - End</h4>
+            </div>
+          <h4>Company 2</h4>
+            <p>I moved pillows around for a living here and then I quit and flew into the sky</p>
         </div>
       
       </div>

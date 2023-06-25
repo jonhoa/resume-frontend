@@ -32,28 +32,6 @@
   justify-content: center;
   columns: 300px 2;
 }
-.projects h3{
-  /* text-align: left; */
-}
-.education-header{
-  display: inline-block;
-  columns: 300px 2;
-  padding:0.4rem;
-}
-.education-header p{
-  display: inline-block;
-  text-align: right;
-  padding:10px;
-  color: red;
-}
-.education ul{
-  width:40%;
-  margin:auto;
-}
-.education li{
-  padding:0.4rem;
-  text-align:left
-}
 /* columns and rows */
 .col {
   columns: 300px 2;
@@ -63,6 +41,9 @@
 }
 .col h4{
   text-align: right;
+}
+.row {
+  margin: 3.2em;
 }
 /*  */
 @keyframes logo-spin {
