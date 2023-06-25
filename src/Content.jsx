@@ -68,16 +68,22 @@ const axiosFetch = () => {
 
         <div class ="education">
           <h2>Education:</h2>
-          <div class="education-header">
-          <h3>Degree</h3>
-          <p>Start</p>
-          <p>End</p>
-          </div>
-          
-          <h4>University</h4>
+            <div class="education-header">
+              <h3>Degree</h3><p>Start</p><p>End</p>
+            </div>
+            <div class="education-header">
+              <h3>University</h3><p>Start</p><p>End</p>
+            </div>
+            <ul>
+              <li>Food</li>
+              <li>GPA:2.5</li>
+            </ul>
+        </div>
+        
+        <div class ="experience">
+          <h2>Experience:</h2>
           <p>I like to build stuff so get me a nice cushiony job pweeze</p>
         </div>
-
       </div>
       {dataInfo ? <div>{dataInfo.map((resData => ( <div key ={resData.id}><button onClick={axiosShow}>Fetch Axios Id :{resData.id} </button>
         <p>{resData.first_name}</p></div>)))}</div>  : <div><p>empty</p></div>}

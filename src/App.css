@@ -18,7 +18,9 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 .res-background {
-  background-color:rgb(207, 207, 204); 
+  background-color:rgb(207, 207, 204);
+  display: block;
+  height: auto; 
 }
 .contact h3 {
   display:inline-block;
@@ -36,12 +38,21 @@
 .education-header{
   display: inline-block;
   columns: 300px 2;
+  padding:0.4rem;
 }
-.education-header p {
+.education-header p{
   display: inline-block;
-  text-align: left;
+  text-align: right;
   padding:10px;
   color: red;
+}
+.education ul{
+  width:40%;
+  margin:auto;
+}
+.education li{
+  padding:0.4rem;
+  text-align:left
 }
 /*  */
 @keyframes logo-spin {
