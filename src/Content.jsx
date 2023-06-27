@@ -2,6 +2,7 @@ import { ProductsNew } from './ProductsNew';
 import { ProductsIndex } from './ProductsIndex';
 import { useEffect , useState} from 'react';
 import axios from 'axios';
+import jsPDF from 'jspdf';
 
 export function Content() {
 const [dataInfo, setData] = useState(null);
@@ -23,10 +24,17 @@ const axiosFetch = () => {
       console.log(dataShow)
     })
   }
+  function downloadResume(){
+    // const { jsPDF } = window.jspdf;
+    let doc = new jsPDF();
+    let pdf = document.querySelector(".res-background");
+   doc.text(pdf,10,2);
+          doc.save("newpdf.pdf");
+  }
   return (
     <div class="container">
       <h1>Resume Builder</h1>
-      <button class ="btn btn-primary">Download as PDF</button>
+      <button class ="btn btn-primary" onClick={downloadResume}>Download as PDF</button>
       <button onClick={axiosFetch}>Fetch Axios Request!</button>
       {/* Fetch ALL firstnames in database */}
       
