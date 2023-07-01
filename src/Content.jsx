@@ -3,12 +3,14 @@ import { ProductsIndex } from './ProductsIndex';
 import { useEffect , useState} from 'react';
 import axios from 'axios';
 import jsPDF from 'jspdf';
+import { useRef } from 'react';
 
 export function Content() {
 const [dataInfo, setData] = useState(null);
 const [dataShow, setShow] = useState(null);
 
 const url_id = 1
+const pdfRef = useRef(null);
 
 const axiosFetch = () => {
     axios.get('http://localhost:3000/people/all').then(response =>{
@@ -26,10 +28,16 @@ const axiosFetch = () => {
   }
   function downloadResume(){
     // const { jsPDF } = window.jspdf;
-    let doc = new jsPDF();
-    let pdf = document.querySelector(".res-background");
-   doc.text(pdf,10,2);
-          doc.save("newpdf.pdf");
+    const resumecontent = pdfRef.current;
+    const doc = new jsPDF('p', 'pt','letter',true);
+  
+   doc.html(resumecontent, {
+    callback: function (doc) {
+        doc.save('sample.pdf');
+    }
+    // padding: 10,
+    // margin: 20
+  });
   }
   return (
     <div class="container">
@@ -39,7 +47,7 @@ const axiosFetch = () => {
       {/* Fetch ALL firstnames in database */}
       
       {/* Resume Layout and Design ---later make it dynamically fill in info from backend like buttons are doing! */}
-      <div class = "res-background">
+      <div class = "res-background" ref ={pdfRef}>
         <div class="header">
           <h1>John Doe</h1>
           <h2>Software Developer</h2>
