@@ -4,6 +4,7 @@ import { useEffect , useState} from 'react';
 import axios from 'axios';
 import jsPDF from 'jspdf';
 import { useRef } from 'react';
+import html2canvas from 'html2canvas';
 
 export function Content() {
 const [dataInfo, setData] = useState(null);
@@ -27,17 +28,13 @@ const axiosFetch = () => {
     })
   }
   function downloadResume(){
-    // const { jsPDF } = window.jspdf;
     const resumecontent = pdfRef.current;
-    const doc = new jsPDF('p', 'pt','letter',true);
-  
-   doc.html(resumecontent, {
-    callback: function (doc) {
-        doc.save('sample.pdf');
-    }
-    // padding: 10,
-    // margin: 20
-  });
+    html2canvas(resumecontent).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF('p', 'pt','letter',true);
+      pdf.addImage(imgData, "png", 0, 0);
+      pdf.save("download.pdf");
+    });
   }
   return (
     <div class="container">
