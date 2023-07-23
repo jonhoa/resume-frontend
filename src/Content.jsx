@@ -52,21 +52,19 @@ const axiosFetch = () => {
         </div>
         
         <div class="contact">
-        {dataShow ? <div><h3>{dataShow.number}</h3><h3>{dataShow.linkedin}</h3><h3>{dataShow.github}</h3></div>: <div><h3>(111)-1111 1111</h3><h3>LinkedIn</h3><h3>Github</h3></div>}
+        {dataShow ? <div><h3>{dataShow.phone}</h3><h3>{dataShow.linkedin}</h3><h3>{dataShow.github}</h3><h3>{dataShow.location}</h3></div>: <div><h3>(111)-1111 1111</h3><h3>LinkedIn</h3><h3>Github</h3><h3>Nowhere</h3></div>}
         </div>
 
         <div class ="row">
           <h2>Summary:</h2>
-          <p>I like to build stuff so get me a nice cushiony job pweeze</p>
+          {dataShow ? <div><p>{dataShow.summary}</p></div>: <div><p>I like to build stuff so get me a nice cushiony job pweeze</p></div>}
         </div>
 
         <div class ="skills">
           <h2>Skills:</h2>
           <ul>
-          <li>Karate</li>
-          <li>Ruby</li>
-          <li>C++</li>
-          <li>Python</li>
+          {/* Not working, need to associate skills name and person url in backend w/ belongs_to person table */}
+          {dataShow ? <div><li>{dataShow.name}</li></div>: <div><li>Karate</li><li>Ruby</li><li>C++</li><li>Python</li></div>}
           </ul>
         </div>
 
