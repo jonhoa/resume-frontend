@@ -42,21 +42,17 @@ const axiosFetch = () => {
     <div class="container">
       <h1>Resume Builder</h1>
       <button class ="btn btn-primary" onClick={downloadResume}>Download as PDF</button>
-      <button onClick={axiosFetch}>Fetch Axios Request!</button>
       <button onClick={axiosShow}>Fetch!</button>
       {/* Fetch ALL firstnames in database */}
       
       {/* Resume Layout and Design ---later make it dynamically fill in info from backend like buttons are doing! */}
       <div class = "res-background" ref ={pdfRef}>
         <div class="header">
-        {dataShow ? <div><h1>{dataShow.first_name}</h1></div>: <div><h1>John Doe</h1></div>}
-          <h2>Software Developer</h2>
+        {dataShow ? <div><h1>{dataShow.first_name} {dataShow.last_name}</h1><h2>{dataShow.title}</h2></div>: <div><h1>John Doe</h1><h2>Software Developer</h2></div>}
         </div>
         
         <div class="contact">
-          <h3>(111)-1111 1111</h3> 
-          <h3>LinkedIN</h3>
-          <h3>Github</h3>
+        {dataShow ? <div><h3>{dataShow.number}</h3><h3>{dataShow.linkedin}</h3><h3>{dataShow.github}</h3></div>: <div><h3>(111)-1111 1111</h3><h3>LinkedIn</h3><h3>Github</h3></div>}
         </div>
 
         <div class ="row">
