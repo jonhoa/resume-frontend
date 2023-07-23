@@ -32,6 +32,8 @@ const axiosFetch = () => {
     html2canvas(resumecontent).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF('p', 'pt','letter',true);
+      pdf.setFont('PTSans',"italic","400");
+      pdf.setFontSize(12); 
       pdf.addImage(imgData, "png", 0, 0);
       pdf.save("download.pdf");
     });
@@ -41,12 +43,13 @@ const axiosFetch = () => {
       <h1>Resume Builder</h1>
       <button class ="btn btn-primary" onClick={downloadResume}>Download as PDF</button>
       <button onClick={axiosFetch}>Fetch Axios Request!</button>
+      <button onClick={axiosShow}>Fetch!</button>
       {/* Fetch ALL firstnames in database */}
       
       {/* Resume Layout and Design ---later make it dynamically fill in info from backend like buttons are doing! */}
       <div class = "res-background" ref ={pdfRef}>
         <div class="header">
-          <h1>John Doe</h1>
+        {dataShow ? <div><h1>{dataShow.first_name}</h1></div>: <div><h1>John Doe</h1></div>}
           <h2>Software Developer</h2>
         </div>
         
