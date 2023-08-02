@@ -38,12 +38,17 @@ const axiosFetch = () => {
       pdf.save("download.pdf");
     });
   }
+  const handleEdit = () => {
+    console.log("Edit clicked");
+  }
   return (
     <div class="container">
       <h1>Resume Builder</h1>
       <button class ="btn btn-primary" onClick={downloadResume}>Download as PDF</button>
-      <button onClick={axiosShow}>Fetch!</button>
       {/* Fetch ALL firstnames in database */}
+      <button onClick={axiosShow}>Fetch!</button>
+      {/* Redirect to edit page and allow edits on resume */}
+      <button onClick={handleEdit}>Edit</button>
       
       {/* Resume Layout and Design ---later make it dynamically fill in info from backend like buttons are doing! */}
       <div class = "res-background" ref ={pdfRef}>
